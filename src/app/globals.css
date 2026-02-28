@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+/* Enable class-based dark mode for Tailwind v4 */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* ── Light Mode (default) ─────────────────────────── */
+:root {
+  --background: #ffffff;
+  --foreground: #2d2d2d;
+  --nav-bg: rgba(255, 255, 255, 0.72);
+  --nav-border: rgba(0, 0, 0, 0.06);
+  --card-bg: #f8f8fa;
+  --muted: #71717a;
+  --accent: #7c3aed;
+  --accent-light: #a78bfa;
+  color-scheme: light;
+}
+
+/* ── Dark Mode ────────────────────────────────────── */
+.dark {
+  --background: #0f0e17;
+  --foreground: #fffffe;
+  --nav-bg: rgba(15, 14, 23, 0.72);
+  --nav-border: rgba(255, 255, 255, 0.06);
+  --card-bg: #1a1925;
+  --muted: #a7a7b1;
+  --accent: #a78bfa;
+  --accent-light: #c4b5fd;
+  color-scheme: dark;
+}
+
+/* ── Base Styles ──────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  transition: background-color 0.35s ease, color 0.35s ease;
+  min-height: 100vh;
+}
+
+/* ── Hero Glow Button ─────────────────────────────── */
+.hero-glow-btn {
+  position: relative;
+  overflow: visible;
+}
+
+.hero-glow-btn::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #ec4899 100%);
+  border-radius: 9999px;
+  opacity: 0;
+  filter: blur(16px);
+  transition: opacity 0.4s ease;
+  z-index: 0;
+  transform: scale(1.15);
+}
+
+.hero-glow-btn:hover::before {
+  opacity: 0.6;
+}
+
+.hero-glow-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 30px rgba(124, 58, 237, 0.35);
+}
+
+/* ── Scrollbar Styling ────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--muted);
+  border-radius: 999px;
+}
+
+/* ── Selection ────────────────────────────────────── */
+::selection {
+  background-color: var(--accent);
+  color: #ffffff;
+}
