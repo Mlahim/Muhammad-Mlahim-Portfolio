@@ -2,8 +2,8 @@
 
 import { motion } from "framer-motion";
 
-import { FaHtml5, FaCss3Alt, FaJsSquare, FaReact, FaNodeJs, FaFigma } from "react-icons/fa";
-import { SiExpress, SiMongodb, SiHuggingface, SiFastapi, SiFlask } from "react-icons/si";
+import { FaHtml5, FaCss3Alt, FaJsSquare, FaReact, FaNodeJs, FaFigma, FaPython } from "react-icons/fa";
+import { SiExpress, SiMongodb, SiHuggingface, SiFastapi, SiFlask, SiNextdotjs } from "react-icons/si";
 import { TbBrandReactNative } from "react-icons/tb";
 
 const skills = [
@@ -12,8 +12,10 @@ const skills = [
     { name: "JavaScript", icon: FaJsSquare, color: "#F7DF1E" },
     { name: "React.js", icon: FaReact, color: "#61DAFB" },
     { name: "React Native", icon: TbBrandReactNative, color: "#61DAFB" },
+    { name: "Next.js", icon: SiNextdotjs, color: "#E0E0E0" },
     { name: "Node.js", icon: FaNodeJs, color: "#339933" },
     { name: "Express.js", icon: SiExpress, color: "#E34F26" },
+    { name: "Python", icon: FaPython, color: "#3776AB" },
     { name: "FastAPI", icon: SiFastapi, color: "#009688" },
     { name: "Flask", icon: SiFlask, color: "#4DB6AC" },
     { name: "MongoDB", icon: SiMongodb, color: "#47A248" },

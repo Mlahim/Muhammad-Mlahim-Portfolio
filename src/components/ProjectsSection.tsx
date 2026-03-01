@@ -1,7 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { ExternalLink, Github } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 /* ── Project Data ─────────────────────────────────── */
 const projects = [
@@ -9,9 +10,9 @@ const projects = [
         title: "AI Text to Speech Tool",
         description:
             "A professional AI-powered Text to Speech generator featuring 200+ neural voices, real-time synthesis, and MP3 download. Built with a modern, responsive UI.",
-        tags: ["Next.js", "TypeScript", "AI", "Tailwind"],
+        tags: ["Next.js", "TypeScript", "Hugging Face", "Tailwind"],
         link: "https://text-to-speech-ai-tool.vercel.app/",
-        github: "#",
+        image: "/tts-preview.png",
     },
     {
         title: "AI Chat Application",
@@ -69,7 +70,7 @@ function ProjectCard({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="group relative flex flex-col rounded-2xl p-6 transition-all duration-300 hover:-translate-y-2 sm:p-7"
+            className="group relative flex flex-col overflow-hidden rounded-2xl transition-all duration-300 hover:-translate-y-2"
             style={{
                 backgroundColor: "var(--card-bg)",
                 border: "1px solid var(--nav-border)",
@@ -84,69 +85,83 @@ function ProjectCard({
                 e.currentTarget.style.borderColor = "var(--nav-border)";
             }}
         >
-            {/* ── Top row: number + links ─────────────── */}
-            <div className="mb-5 flex items-center justify-between">
-                <span
-                    className="text-xs font-bold uppercase tracking-widest"
-                    style={{ color: "var(--accent)" }}
-                >
-                    Project {String(index + 1).padStart(2, "0")}
-                </span>
-                <div className="flex items-center gap-3">
-                    {project.github && (
-                        <a
-                            href={project.github}
-                            aria-label="GitHub"
-                            className="transition-colors duration-200 hover:text-[var(--accent)]"
-                            style={{ color: "var(--muted)" }}
-                        >
-                            <Github size={18} />
-                        </a>
-                    )}
-                    {project.link && (
-                        <a
-                            href={project.link}
-                            aria-label="Live demo"
-                            className="transition-colors duration-200 hover:text-[var(--accent)]"
-                            style={{ color: "var(--muted)" }}
-                        >
-                            <ExternalLink size={18} />
-                        </a>
-                    )}
-                </div>
-            </div>
-
-            {/* ── Title ───────────────────────────────── */}
-            <h3
-                className="mb-3 text-lg font-bold tracking-tight sm:text-xl"
-                style={{ color: "var(--foreground)" }}
-            >
-                {project.title}
-            </h3>
-
-            {/* ── Description ─────────────────────────── */}
-            <p
-                className="mb-6 flex-1 text-sm leading-relaxed sm:text-base"
-                style={{ color: "var(--muted)" }}
-            >
-                {project.description}
-            </p>
-
-            {/* ── Tags ─────────────────────────────────── */}
-            <div className="flex flex-wrap gap-2">
-                {project.tags.map((tag) => (
-                    <span
-                        key={tag}
-                        className="rounded-full px-3 py-1 text-xs font-medium"
+            {/* ── Header Image ────────────────────────── */}
+            {project.image && (
+                <div className="relative h-48 w-full overflow-hidden">
+                    <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div
+                        className="absolute inset-0"
                         style={{
-                            backgroundColor: "rgba(124, 58, 237, 0.12)",
-                            color: "var(--accent)",
-                            border: "1px solid rgba(124, 58, 237, 0.15)",
+                            background: "linear-gradient(to top, var(--card-bg) 0%, transparent 60%)",
                         }}
+                    />
+                </div>
+            )}
+
+            <div className="flex flex-1 flex-col p-6 sm:p-7">
+                {/* ── Top row: number ─────────────────────── */}
+                <div className="mb-5 flex items-center justify-between">
+                    <span
+                        className="text-xs font-bold uppercase tracking-widest"
+                        style={{ color: "var(--accent)" }}
                     >
-                        {tag}
+                        Project {String(index + 1).padStart(2, "0")}
                     </span>
-                ))}
+                </div>
+
+                {/* ── Title ───────────────────────────────── */}
+                <h3
+                    className="mb-3 text-lg font-bold tracking-tight sm:text-xl"
+                    style={{ color: "var(--foreground)" }}
+                >
+                    {project.title}
+                </h3>
+
+                {/* ── Description ─────────────────────────── */}
+                <p
+                    className="mb-6 flex-1 text-sm leading-relaxed sm:text-base"
+                    style={{ color: "var(--muted)" }}
+                >
+                    {project.description}
+                </p>
+
+                {/* ── Tags ─────────────────────────────────── */}
+                <div className="mb-5 flex flex-wrap gap-2">
+                    {project.tags.map((tag) => (
+                        <span
+                            key={tag}
+                            className="rounded-full px-3 py-1 text-xs font-medium"
+                            style={{
+                                backgroundColor: "rgba(124, 58, 237, 0.12)",
+                                color: "var(--accent)",
+                                border: "1px solid rgba(124, 58, 237, 0.15)",
+                            }}
+                        >
+                            {tag}
+                        </span>
+                    ))}
+                </div>
+
+                {/* ── View Project Link ────────────────────── */}
+                {project.link && project.link !== "#" && (
+                    <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 text-sm font-semibold transition-all duration-200"
+                        style={{ color: "var(--accent)" }}
+                        onMouseEnter={(e) => { e.currentTarget.style.gap = "8px"; }}
+                        onMouseLeave={(e) => { e.currentTarget.style.gap = "6px"; }}
+                    >
+                        View Project
+                        <ArrowUpRight size={16} className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    </a>
+                )}
             </div>
         </motion.div>
     );
