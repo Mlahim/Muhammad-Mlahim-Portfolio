@@ -30,9 +30,9 @@ export default function ContactSection() {
 
         setStatus("loading");
 
-        const serviceId = "service_m6vv7w8";
-        const templateId = "template_rirqotr";
-        const publicKey = "ap-O7oHj7YQf7L_Qp";
+        const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "";
+        const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "";
+        const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "";
 
         try {
             await emailjs.sendForm(serviceId, templateId, formRef.current, publicKey);

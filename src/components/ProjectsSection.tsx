@@ -6,11 +6,11 @@ import { ExternalLink, Github } from "lucide-react";
 /* ── Project Data ─────────────────────────────────── */
 const projects = [
     {
-        title: "E-Commerce Platform",
+        title: "AI Text to Speech Tool",
         description:
-            "A full-stack e-commerce solution with real-time inventory, Stripe payments, and an admin dashboard for managing products and orders.",
-        tags: ["Next.js", "TypeScript", "Stripe", "Prisma"],
-        link: "#",
+            "A professional AI-powered Text to Speech generator featuring 200+ neural voices, real-time synthesis, and MP3 download. Built with a modern, responsive UI.",
+        tags: ["Next.js", "TypeScript", "AI", "Tailwind"],
+        link: "https://text-to-speech-ai-tool.vercel.app/",
         github: "#",
     },
     {
