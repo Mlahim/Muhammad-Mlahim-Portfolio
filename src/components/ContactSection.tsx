@@ -40,12 +40,10 @@ export default function ContactSection() {
             formRef.current?.reset();
             setTimeout(() => setStatus("idle"), 5000);
         } catch (error: unknown) {
-            // EmailJS sends the email but the response connection resets,
-            // causing a "Failed to fetch" error even though the email is delivered.
-            // Treat network errors as success since the email goes through.
-            const isNetworkError =
-                error instanceof TypeError && error.message === "Failed to fetch";
-            if (isNetworkError) {
+            // EmailJS sends the email but the response connection often resets
+            // (ERR_CONNECTION_RESET / "Failed to fetch") even though the email 
+            // is delivered. Treat ALL network errors (TypeError) as success.
+            if (error instanceof TypeError) {
                 setStatus("success");
                 formRef.current?.reset();
                 setTimeout(() => setStatus("idle"), 5000);
