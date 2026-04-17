@@ -1,0 +1,26 @@
+
+D:\mlahim_portfolio\src\components\ContactSection.tsx
+  15:7    warning  'inputStyles' is assigned a value but never used                 @typescript-eslint/no-unused-vars
+  80:36   error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  80:174  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+D:\mlahim_portfolio\src\components\ThemeProvider.tsx
+  31:13  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+D:\mlahim_portfolio\src\components\ThemeProvider.tsx:31:13
+  29 |         const stored = localStorage.getItem("theme") as Theme | null;
+  30 |         if (stored) {
+> 31 |             setTheme(stored);
+     |             ^^^^^^^^ Avoid calling setState() directly within an effect
+  32 |         } else {
+  33 |             const prefersDark = window.matchMedia(
+  34 |                 "(prefers-color-scheme: dark)"  react-hooks/set-state-in-effect
+
+✖ 4 problems (3 errors, 1 warning)
+

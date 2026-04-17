@@ -1,19 +1,13 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 
 export default function AboutSection() {
     return (
         <section
             id="about"
-            className="relative overflow-hidden px-6 py-14 sm:py-20"
+            className="relative overflow-hidden px-6 pt-24 pb-8 md:pt-28 md:pb-12"
         >
-            {/* Ambient glow */}
-            <div
-                className="pointer-events-none absolute top-1/2 left-0 h-[500px] w-[500px] -translate-y-1/2 rounded-full opacity-10 blur-[120px]"
-                style={{ background: "radial-gradient(circle, #7c3aed 0%, transparent 70%)" }}
-            />
 
             <div className="mx-auto max-w-6xl">
                 {/* ── Section Label ───────────────────────── */}
@@ -25,55 +19,43 @@ export default function AboutSection() {
                     className="mb-16 text-center"
                 >
                     <p
-                        className="mb-3 text-sm font-medium uppercase tracking-[0.25em]"
-                        style={{ color: "var(--accent)" }}
+                        className="mb-3 text-sm font-bold uppercase tracking-widest text-[#0C2B27]"
                     >
                         Get to know me
                     </p>
-                    <h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
-                        <span
-                            className="bg-clip-text text-transparent"
-                            style={{
-                                backgroundImage:
-                                    "linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #ec4899 100%)",
-                            }}
-                        >
-                            About Me
-                        </span>
+                    <h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl text-[#0C2B27]">
+                        About Me
                     </h2>
                 </motion.div>
 
-                {/* ── 2-Column Grid ──────────────────────── */}
-                <div className="grid items-center gap-12 md:grid-cols-2 lg:gap-20">
-                    {/* ── Left: Text ───────────────────────── */}
+                {/* ── Content ──────────────────────── */}
+                <div className="mx-auto max-w-4xl text-center">
                     <motion.div
-                        initial={{ opacity: 0, x: -60 }}
-                        whileInView={{ opacity: 1, x: 0 }}
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, amount: 0.3 }}
                         transition={{ duration: 0.7, ease: "easeOut" }}
-                        className="order-2 md:order-1"
                     >
                         <h3
-                            className="mb-5 text-2xl font-bold tracking-tight sm:text-3xl"
-                            style={{ color: "var(--foreground)" }}
+                            className="mb-6 text-2xl font-bold tracking-tight sm:text-3xl sm:leading-snug text-[#0C2B27]"
                         >
                             Building Next-Gen Web Applications
-                            <br />
-                            <span style={{ color: "var(--accent)" }}>with AI Integration</span>
+                            <br className="hidden sm:block" />
+                            <span className="text-[#0C2B27] inline-block mt-2 sm:mt-1 border-b-4 border-[#C4FF00]">with AI Integration</span>
                         </h3>
 
-                        <div className="space-y-4 text-base leading-relaxed sm:text-lg">
-                            <p style={{ color: "var(--muted)" }}>
-                                I am a <span className="font-semibold" style={{ color: "var(--accent)" }}>Full Stack Developer</span> with a specialized focus on
-                                building <span className="font-semibold" style={{ color: "var(--accent)" }}>AI-powered tools</span> and applications.
+                        <div className="space-y-6 text-base leading-relaxed sm:text-lg text-[#0C2B27]/80 max-w-3xl mx-auto">
+                            <p>
+                                I am a <span className="font-bold text-[#0C2B27]">Full Stack Developer</span> with a specialized focus on
+                                building <span className="font-bold text-[#0C2B27]">AI-powered tools</span> and applications.
                             </p>
-                            <p style={{ color: "var(--muted)" }}>
+                            <p>
                                 My passion lies in bridging the gap between robust web
-                                development and <span className="font-semibold" style={{ color: "var(--accent)" }}>artificial intelligence</span>. I don&apos;t just build
+                                development and <span className="font-bold text-[#0C2B27]">artificial intelligence</span>. I don&apos;t just build
                                 websites; I engineer intelligent web solutions that leverage
                                 the power of AI to solve real-world problems.
                             </p>
-                            <p style={{ color: "var(--muted)" }}>
+                            <p>
                                 Whether it&apos;s creating a custom AI tool from scratch or
                                 seamlessly integrating advanced AI models into existing
                                 platforms, I handle the entire stack. From backend logic to the
@@ -83,80 +65,27 @@ export default function AboutSection() {
                         </div>
 
                         {/* ── Quick Stats ────────────────────── */}
-                        <div className="mt-8 grid grid-cols-2 gap-4">
+                        <div className="mt-12 grid grid-cols-2 gap-4 max-w-md mx-auto">
                             {[
                                 { value: "20+", label: "Projects" },
                                 { value: "10+", label: "Technologies" },
                             ].map((stat) => (
                                 <div
                                     key={stat.label}
-                                    className="rounded-2xl p-4 text-center transition-colors duration-300"
-                                    style={{ backgroundColor: "var(--card-bg)" }}
+                                    className="rounded-3xl p-6 text-center transition-all duration-300 bg-white shadow-sm border-2 border-[#0C2B27]/5 hover:border-[#C4FF00] hover:-translate-y-1"
                                 >
                                     <p
-                                        className="text-2xl font-bold sm:text-3xl"
-                                        style={{ color: "var(--accent)" }}
+                                        className="text-3xl font-extrabold sm:text-4xl text-[#0C2B27]"
                                     >
                                         {stat.value}
                                     </p>
                                     <p
-                                        className="mt-1 text-xs font-medium uppercase tracking-wider sm:text-sm"
-                                        style={{ color: "var(--muted)" }}
+                                        className="mt-2 text-xs font-bold uppercase tracking-widest text-[#0C2B27]/60"
                                     >
                                         {stat.label}
                                     </p>
                                 </div>
                             ))}
-                        </div>
-                    </motion.div>
-
-                    {/* ── Right: Image ─────────────────────── */}
-                    <motion.div
-                        initial={{ opacity: 0, x: 60 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true, amount: 0.3 }}
-                        transition={{ duration: 0.7, ease: "easeOut" }}
-                        className="order-1 flex justify-center md:order-2"
-                    >
-                        <div className="relative">
-                            {/* Glow behind image */}
-                            <div
-                                className="absolute -inset-4 rounded-3xl opacity-30 blur-2xl"
-                                style={{
-                                    background:
-                                        "linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #ec4899 100%)",
-                                }}
-                            />
-
-                            {/* Decorative border frame */}
-                            <div
-                                className="absolute -right-4 -bottom-4 h-full w-full rounded-3xl"
-                                style={{
-                                    border: "2px solid var(--accent)",
-                                    opacity: 0.2,
-                                }}
-                            />
-
-                            {/* Image container */}
-                            <div
-                                className="relative h-[400px] w-full max-w-[320px] overflow-hidden rounded-3xl md:h-[480px] md:max-w-[380px]"
-                                style={{
-                                    boxShadow: "0 20px 60px rgba(124, 58, 237, 0.2)",
-                                    border: "1px solid rgba(124, 58, 237, 0.3)",
-                                }}
-                            >
-
-
-                                {/* Profile Image */}
-                                <Image
-                                    src="/image_with_bd.png"
-                                    alt="Muhammad Mlahim - About Me"
-                                    width={400}
-                                    height={500}
-                                    className="h-full w-full object-cover object-top transition-transform duration-500 hover:scale-105"
-                                    priority
-                                />
-                            </div>
                         </div>
                     </motion.div>
                 </div>

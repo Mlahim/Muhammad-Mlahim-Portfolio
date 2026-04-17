@@ -48,12 +48,7 @@ const pillVariants = {
 
 export default function SkillsSection() {
     return (
-        <section id="skills" className="relative overflow-hidden px-6 py-14 sm:py-20">
-            {/* Ambient glow */}
-            <div
-                className="pointer-events-none absolute bottom-0 left-1/2 h-[500px] w-[500px] -translate-x-1/2 rounded-full opacity-10 blur-[120px]"
-                style={{ background: "radial-gradient(circle, #7c3aed 0%, transparent 70%)" }}
-            />
+        <section id="skills" className="relative overflow-hidden px-6 pt-8 pb-12 sm:pt-12 sm:pb-16">
 
             <div className="mx-auto max-w-4xl">
                 {/* ── Heading ──────────────────────────── */}
@@ -65,52 +60,35 @@ export default function SkillsSection() {
                     className="mb-16 text-center"
                 >
                     <p
-                        className="mb-3 text-sm font-medium uppercase tracking-[0.25em]"
-                        style={{ color: "var(--accent)" }}
+                        className="mb-3 text-sm font-bold uppercase tracking-widest text-[#0C2B27]"
                     >
                         My toolkit
                     </p>
-                    <h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
-                        <span
-                            className="bg-clip-text text-transparent"
-                            style={{
-                                backgroundImage:
-                                    "linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #ec4899 100%)",
-                            }}
-                        >
-                            Tech Stack
-                        </span>
+                    <h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl text-[#0C2B27]">
+                        Tech Stack
                     </h2>
                 </motion.div>
 
-                {/* ── Skill Pills ─────────────────────── */}
-                <motion.div
-                    variants={containerVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, amount: 0.2 }}
-                    className="flex flex-wrap justify-center gap-4"
-                >
-                    {skills.map((skill) => (
-                        <motion.div
-                            key={skill.name}
-                            variants={pillVariants}
-                            whileHover={{
-                                scale: 1.1,
-                                boxShadow: `0 0 24px ${skill.color}40`,
-                                borderColor: `${skill.color}80`,
-                            }}
-                            className="flex cursor-default items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-colors duration-200 sm:text-base"
-                            style={{
-                                backgroundColor: `${skill.color}15`,
-                                border: `1px solid ${skill.color}30`,
-                            }}
-                        >
-                            <skill.icon className="text-xl" style={{ color: skill.color }} />
-                            <span>{skill.name}</span>
-                        </motion.div>
-                    ))}
-                </motion.div>
+                {/* ── Horizontal Scrolling Marquee ─────────────────────── */}
+                <div className="relative flex w-full overflow-hidden mask-image-fade">
+                    <motion.div
+                        animate={{ x: ["0%", "-50%"] }}
+                        transition={{ repeat: Infinity, ease: "linear", duration: 30 }}
+                        className="flex w-max gap-4 sm:gap-6 pr-4 sm:pr-6"
+                    >
+                        {[...skills, ...skills].map((skill, index) => (
+                            <div
+                                key={`${skill.name}-${index}`}
+                                className="group flex cursor-pointer items-center gap-2 sm:gap-4 rounded-full bg-white px-3 sm:px-6 py-2 sm:py-4 text-[10px] sm:text-sm font-bold text-[#0C2B27] shadow-sm transition-all duration-300 hover:scale-105 hover:-translate-y-1 hover:shadow-lg border-2 border-transparent hover:border-[#C4FF00] min-w-max"
+                            >
+                                <div className="flex h-6 w-6 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-full bg-[#0C2B27] transition-colors duration-300 group-hover:bg-[#C4FF00]">
+                                    <skill.icon className="text-[12px] sm:text-lg text-[#C4FF00] transition-colors duration-300 group-hover:text-[#0C2B27]" />
+                                </div>
+                                <span className="whitespace-nowrap truncate">{skill.name}</span>
+                            </div>
+                        ))}
+                    </motion.div>
+                </div>
             </div>
         </section>
     );

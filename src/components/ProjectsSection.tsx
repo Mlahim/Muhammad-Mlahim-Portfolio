@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 
@@ -70,99 +69,45 @@ function ProjectCard({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="group relative flex flex-col overflow-hidden rounded-2xl transition-all duration-300 hover:-translate-y-2"
-            style={{
-                backgroundColor: "var(--card-bg)",
-                border: "1px solid var(--nav-border)",
-            }}
-            onMouseEnter={(e) => {
-                e.currentTarget.style.boxShadow =
-                    "0 16px 48px rgba(124, 58, 237, 0.18)";
-                e.currentTarget.style.borderColor = "rgba(124, 58, 237, 0.25)";
-            }}
-            onMouseLeave={(e) => {
-                e.currentTarget.style.boxShadow = "none";
-                e.currentTarget.style.borderColor = "var(--nav-border)";
-            }}
+            className="group relative flex flex-col justify-between overflow-hidden rounded-[2rem] bg-[#0C2B27] p-6 sm:p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgba(196,255,0,0.2)] border-2 border-[#0C2B27] hover:border-[#C4FF00]"
         >
-            {/* ── Header Image ────────────────────────── */}
-            {project.image && (
-                <div className="relative h-48 w-full overflow-hidden">
-                    <Image
-                        src={project.image}
-                        alt={project.title}
-                        fill
-                        className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div
-                        className="absolute inset-0"
-                        style={{
-                            background: "linear-gradient(to top, var(--card-bg) 0%, transparent 60%)",
-                        }}
-                    />
-                </div>
-            )}
-
-            <div className="flex flex-1 flex-col p-6 sm:p-7">
-                {/* ── Top row: number ─────────────────────── */}
-                <div className="mb-5 flex items-center justify-between">
-                    <span
-                        className="text-xs font-bold uppercase tracking-widest"
-                        style={{ color: "var(--accent)" }}
-                    >
+            <div>
+                <div className="mb-4 flex items-center justify-between">
+                    <span className="text-xs font-bold uppercase tracking-widest text-[#C4FF00]/80">
                         Project {String(index + 1).padStart(2, "0")}
                     </span>
+                    <div className="flex items-center gap-2 text-white/40 transition-all duration-300 group-hover:text-[#C4FF00]">
+                        <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest">View Project</span>
+                        <ArrowUpRight size={20} className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+                    </div>
                 </div>
 
-                {/* ── Title ───────────────────────────────── */}
-                <h3
-                    className="mb-3 text-lg font-bold tracking-tight sm:text-xl"
-                    style={{ color: "var(--foreground)" }}
-                >
+                <h3 className="mb-3 text-xl font-extrabold tracking-tight text-white transition-colors duration-300 group-hover:text-[#C4FF00]">
                     {project.title}
                 </h3>
 
-                {/* ── Description ─────────────────────────── */}
-                <p
-                    className="mb-6 flex-1 text-sm leading-relaxed sm:text-base"
-                    style={{ color: "var(--muted)" }}
-                >
+                <p className="mb-6 text-sm leading-relaxed text-[#d1d5db]">
                     {project.description}
                 </p>
-
-                {/* ── Tags ─────────────────────────────────── */}
-                <div className="mb-5 flex flex-wrap gap-2">
-                    {project.tags.map((tag) => (
-                        <span
-                            key={tag}
-                            className="rounded-full px-3 py-1 text-xs font-medium"
-                            style={{
-                                backgroundColor: "rgba(124, 58, 237, 0.12)",
-                                color: "var(--accent)",
-                                border: "1px solid rgba(124, 58, 237, 0.15)",
-                            }}
-                        >
-                            {tag}
-                        </span>
-                    ))}
-                </div>
-
-                {/* ── View Project Link ────────────────────── */}
-                {project.link && project.link !== "#" && (
-                    <a
-                        href={project.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-sm font-semibold transition-all duration-200"
-                        style={{ color: "var(--accent)" }}
-                        onMouseEnter={(e) => { e.currentTarget.style.gap = "8px"; }}
-                        onMouseLeave={(e) => { e.currentTarget.style.gap = "6px"; }}
-                    >
-                        View Project
-                        <ArrowUpRight size={16} className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                    </a>
-                )}
             </div>
+
+            <div className="flex flex-wrap gap-2 relative z-20">
+                {project.tags.slice(0, 3).map((tag) => (
+                    <span
+                        key={tag}
+                        className="rounded-full px-3 py-1 text-[10px] sm:text-[11px] font-bold text-[#0C2B27] bg-[#F6F6F2] transition-colors duration-300 group-hover:bg-[#C4FF00]"
+                    >
+                        {tag}
+                    </span>
+                ))}
+            </div>
+
+            {/* Overlay Link */}
+            {project.link && project.link !== "#" && (
+                <a href={project.link} target="_blank" rel="noreferrer" className="absolute inset-0 z-10">
+                    <span className="sr-only">View {project.title}</span>
+                </a>
+            )}
         </motion.div>
     );
 }
@@ -170,12 +115,7 @@ function ProjectCard({
 /* ── Section ──────────────────────────────────────── */
 export default function ProjectsSection() {
     return (
-        <section id="projects" className="relative overflow-hidden px-6 py-14 sm:py-20">
-            {/* Ambient glow */}
-            <div
-                className="pointer-events-none absolute top-0 right-0 h-[500px] w-[500px] rounded-full opacity-10 blur-[120px]"
-                style={{ background: "radial-gradient(circle, #a855f7 0%, transparent 70%)" }}
-            />
+        <section id="projects" className="relative overflow-hidden px-6 py-8 sm:py-12">
 
             <div className="mx-auto max-w-6xl">
                 {/* ── Heading ──────────────────────────── */}
@@ -187,26 +127,17 @@ export default function ProjectsSection() {
                     className="mb-16 text-center"
                 >
                     <p
-                        className="mb-3 text-sm font-medium uppercase tracking-[0.25em]"
-                        style={{ color: "var(--accent)" }}
+                        className="mb-3 text-sm font-bold uppercase tracking-widest text-[#0C2B27]"
                     >
                         What I&apos;ve built
                     </p>
-                    <h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
-                        <span
-                            className="bg-clip-text text-transparent"
-                            style={{
-                                backgroundImage:
-                                    "linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #ec4899 100%)",
-                            }}
-                        >
-                            Projects
-                        </span>
+                    <h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl text-[#0C2B27]">
+                        Projects
                     </h2>
                 </motion.div>
 
                 {/* ── Grid ─────────────────────────────── */}
-                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+                <div className="grid gap-6 sm:gap-8 sm:grid-cols-2 max-w-5xl mx-auto">
                     {projects.map((project, i) => (
                         <ProjectCard key={project.title} project={project} index={i} />
                     ))}

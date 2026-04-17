@@ -5,7 +5,6 @@ import emailjs from "@emailjs/browser";
 
 import { motion } from "framer-motion";
 import { Github, Twitter, Instagram, Send } from "lucide-react";
-import { FaMapMarkerAlt, FaWhatsapp, FaEnvelope } from "react-icons/fa";
 
 const socials = [
     { label: "GitHub", href: "https://github.com/Mlahim/Mlahim.github.io", icon: Github },
@@ -56,12 +55,7 @@ export default function ContactSection() {
     };
 
     return (
-        <section id="contact" className="relative overflow-hidden px-6 py-14 sm:py-20">
-            {/* Ambient glow */}
-            <div
-                className="pointer-events-none absolute top-1/2 left-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-10 blur-[120px]"
-                style={{ background: "radial-gradient(circle, #7c3aed 0%, transparent 70%)" }}
-            />
+        <section id="contact" className="relative overflow-hidden px-6 pt-16 pb-12 sm:pt-20 sm:pb-16" style={{ background: "linear-gradient(180deg, #0C2B27 0%, #0C2B27 70%, #103c2d 100%)" }}>
 
             <div className="mx-auto max-w-4xl">
                 {/* ── Heading ──────────────────────────── */}
@@ -73,27 +67,17 @@ export default function ContactSection() {
                     className="mb-14 text-center mx-auto max-w-2xl"
                 >
                     <p
-                        className="mb-3 text-sm font-medium uppercase tracking-[0.25em]"
-                        style={{ color: "var(--accent)" }}
+                        className="mb-3 text-sm font-bold uppercase tracking-widest text-[#C4FF00]"
                     >
                         Get in touch
                     </p>
-                    <h2 className="mb-4 text-4xl font-extrabold tracking-tight sm:text-5xl">
-                        <span
-                            className="bg-clip-text text-transparent"
-                            style={{
-                                backgroundImage:
-                                    "linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #ec4899 100%)",
-                            }}
-                        >
-                            Let&apos;s Connect
-                        </span>
+                    <h2 className="mb-4 text-4xl font-extrabold tracking-tight sm:text-5xl text-white">
+                        Let&apos;s Connect
                     </h2>
                     <p
-                        className="mx-auto max-w-md text-base leading-relaxed"
-                        style={{ color: "var(--muted)" }}
+                        className="mx-auto max-w-md text-base leading-relaxed text-[#d1d5db]"
                     >
-                        Whether you're looking to build something extraordinary, solve a complex problem, or just talk code over virtual coffee, my inbox is always open. Let's make it happen.
+                        Whether you&apos;re looking to build something extraordinary, solve a complex problem, or just talk code over virtual coffee, my inbox is always open. Let&apos;s make it happen.
                     </p>
                 </motion.div>
 
@@ -111,8 +95,7 @@ export default function ContactSection() {
                     <div>
                         <label
                             htmlFor="contact-name"
-                            className="mb-2 block text-sm font-medium"
-                            style={{ color: "var(--foreground)" }}
+                            className="mb-2 block text-sm font-bold tracking-wide text-white"
                         >
                             Name
                         </label>
@@ -122,16 +105,9 @@ export default function ContactSection() {
                             type="text"
                             placeholder="Your name"
                             required
-                            className="w-full rounded-xl px-4 py-3 text-sm outline-none transition-all duration-200 placeholder:text-gray-500 focus:ring-2 focus:ring-purple-500 sm:text-base"
-                            style={inputStyles}
-                            onFocus={(e) => {
-                                e.currentTarget.style.borderColor = "#7c3aed";
-                                e.currentTarget.style.backgroundColor = "rgba(124, 58, 237, 0.05)";
-                            }}
-                            onBlur={(e) => {
-                                e.currentTarget.style.borderColor = "rgba(100, 100, 120, 0.3)";
-                                e.currentTarget.style.backgroundColor = "transparent";
-                            }}
+                            className="w-full rounded-xl px-4 py-3 text-sm outline-none transition-all duration-200 placeholder:text-white/50 focus:ring-2 focus:ring-[#C4FF00] sm:text-base bg-transparent border-2 border-white/20 text-white"
+                            onFocus={(e) => { e.currentTarget.style.borderColor = "#C4FF00"; }}
+                            onBlur={(e) => { e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.2)"; }}
                         />
                     </div>
 
@@ -139,8 +115,7 @@ export default function ContactSection() {
                     <div>
                         <label
                             htmlFor="contact-email"
-                            className="mb-2 block text-sm font-medium"
-                            style={{ color: "var(--foreground)" }}
+                            className="mb-2 block text-sm font-bold tracking-wide text-white"
                         >
                             Email
                         </label>
@@ -150,16 +125,9 @@ export default function ContactSection() {
                             type="email"
                             placeholder="you@example.com"
                             required
-                            className="w-full rounded-xl px-4 py-3 text-sm outline-none transition-all duration-200 placeholder:text-gray-500 focus:ring-2 focus:ring-purple-500 sm:text-base"
-                            style={inputStyles}
-                            onFocus={(e) => {
-                                e.currentTarget.style.borderColor = "#7c3aed";
-                                e.currentTarget.style.backgroundColor = "rgba(124, 58, 237, 0.05)";
-                            }}
-                            onBlur={(e) => {
-                                e.currentTarget.style.borderColor = "rgba(100, 100, 120, 0.3)";
-                                e.currentTarget.style.backgroundColor = "transparent";
-                            }}
+                            className="w-full rounded-xl px-4 py-3 text-sm outline-none transition-all duration-200 placeholder:text-white/50 focus:ring-2 focus:ring-[#C4FF00] sm:text-base bg-transparent border-2 border-white/20 text-white"
+                            onFocus={(e) => { e.currentTarget.style.borderColor = "#C4FF00"; }}
+                            onBlur={(e) => { e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.2)"; }}
                         />
                     </div>
 
@@ -167,8 +135,7 @@ export default function ContactSection() {
                     <div>
                         <label
                             htmlFor="contact-message"
-                            className="mb-2 block text-sm font-medium"
-                            style={{ color: "var(--foreground)" }}
+                            className="mb-2 block text-sm font-bold tracking-wide text-white"
                         >
                             Message
                         </label>
@@ -178,16 +145,9 @@ export default function ContactSection() {
                             rows={5}
                             placeholder="Tell me about your project..."
                             required
-                            className="w-full resize-none rounded-xl px-4 py-3 text-sm outline-none transition-all duration-200 placeholder:text-gray-500 focus:ring-2 focus:ring-purple-500 sm:text-base"
-                            style={inputStyles}
-                            onFocus={(e) => {
-                                e.currentTarget.style.borderColor = "#7c3aed";
-                                e.currentTarget.style.backgroundColor = "rgba(124, 58, 237, 0.05)";
-                            }}
-                            onBlur={(e) => {
-                                e.currentTarget.style.borderColor = "rgba(100, 100, 120, 0.3)";
-                                e.currentTarget.style.backgroundColor = "transparent";
-                            }}
+                            className="w-full resize-none rounded-xl px-4 py-3 text-sm outline-none transition-all duration-200 placeholder:text-white/50 focus:ring-2 focus:ring-[#C4FF00] sm:text-base bg-transparent border-2 border-white/20 text-white"
+                            onFocus={(e) => { e.currentTarget.style.borderColor = "#C4FF00"; }}
+                            onBlur={(e) => { e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.2)"; }}
                         />
                     </div>
 
@@ -196,17 +156,7 @@ export default function ContactSection() {
                         type="submit"
                         disabled={status === "loading" || status === "success"}
                         id="contact-submit"
-                        className="group flex w-full items-center justify-center gap-2 rounded-xl py-4 text-base font-semibold text-white transition-all duration-300 hover:-translate-y-1 cursor-pointer sm:text-lg disabled:cursor-not-allowed disabled:opacity-70 disabled:hover:translate-y-0"
-                        style={{
-                            background: "linear-gradient(to right, #7c3aed, #4f46e5)",
-                            boxShadow: "0 4px 20px rgba(124, 58, 237, 0.25)",
-                        }}
-                        onMouseEnter={(e) => {
-                            e.currentTarget.style.boxShadow = "0 10px 36px rgba(124, 58, 237, 0.4)";
-                        }}
-                        onMouseLeave={(e) => {
-                            e.currentTarget.style.boxShadow = "0 4px 20px rgba(124, 58, 237, 0.25)";
-                        }}
+                        className="group flex w-full items-center justify-center gap-2 rounded-full py-4 text-base font-extrabold uppercase tracking-widest text-[#0C2B27] transition-all duration-300 hover:-translate-y-1 cursor-pointer sm:text-lg hover:shadow-[0_4px_30px_rgba(196,255,0,0.5)] bg-[#C4FF00] disabled:cursor-not-allowed disabled:opacity-70 disabled:hover:translate-y-0 disabled:hover:shadow-none"
                     >
                         {status === "loading" ? (
                             "Sending..."
@@ -226,80 +176,7 @@ export default function ContactSection() {
                     </button>
                 </motion.form>
 
-                {/* ── Contact Details ─────────────────────── */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.3 }}
-                    transition={{ duration: 0.5, delay: 0.3 }}
-                    className="mt-14"
-                >
-                    <div
-                        className="mx-auto flex w-full flex-col gap-6 rounded-3xl p-8 transition-all duration-300 sm:p-10"
-                        style={{
-                            background: "linear-gradient(145deg, rgba(30, 30, 40, 0.05), rgba(20, 20, 30, 0.02))",
-                            border: "1px solid rgba(100, 100, 120, 0.2)",
-                            boxShadow: "0 10px 40px rgba(0, 0, 0, 0.05)",
-                        }}
-                    >
-                        <h3 className="mb-2 text-center text-xl font-bold tracking-tight" style={{ color: "var(--foreground)" }}>
-                            Direct Contact
-                        </h3>
-                        <div className="flex flex-col md:flex-row gap-4 justify-between">
-                            {/* Address */}
-                            <div
-                                className="group flex flex-1 items-center gap-4 rounded-2xl p-4 transition-all duration-300 hover:-translate-y-1"
-                                style={{ backgroundColor: "rgba(227, 79, 38, 0.05)", border: "1px solid rgba(227, 79, 38, 0.1)" }}
-                            >
-                                <div
-                                    className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full transition-transform duration-300 group-hover:scale-110"
-                                    style={{ backgroundColor: "rgba(227, 79, 38, 0.1)", color: "#E34F26" }}
-                                >
-                                    <FaMapMarkerAlt size={22} />
-                                </div>
-                                <div className="flex flex-col overflow-hidden">
-                                    <span className="text-xs font-semibold uppercase tracking-wider" style={{ color: "#E34F26" }}>Location</span>
-                                    <span className="font-medium truncate text-sm sm:text-base" style={{ color: "var(--foreground)" }}>Lahore, Pakistan</span>
-                                </div>
-                            </div>
 
-                            {/* WhatsApp */}
-                            <div
-                                className="group flex flex-1 items-center gap-4 rounded-2xl p-4 transition-all duration-300 hover:-translate-y-1"
-                                style={{ backgroundColor: "rgba(37, 211, 102, 0.05)", border: "1px solid rgba(37, 211, 102, 0.1)" }}
-                            >
-                                <div
-                                    className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full transition-transform duration-300 group-hover:scale-110"
-                                    style={{ backgroundColor: "rgba(37, 211, 102, 0.1)", color: "#25D366" }}
-                                >
-                                    <FaWhatsapp size={24} />
-                                </div>
-                                <div className="flex flex-col overflow-hidden">
-                                    <span className="text-xs font-semibold uppercase tracking-wider" style={{ color: "#25D366" }}>WhatsApp</span>
-                                    <span className="font-medium truncate text-sm sm:text-base" style={{ color: "var(--foreground)" }}>+92 327 6053253</span>
-                                </div>
-                            </div>
-
-                            {/* Email */}
-                            <a
-                                href="mailto:zmlahim676@gmail.com"
-                                className="group flex flex-1 items-center gap-4 rounded-2xl p-4 transition-all duration-300 hover:-translate-y-1"
-                                style={{ backgroundColor: "rgba(234, 67, 53, 0.05)", border: "1px solid rgba(234, 67, 53, 0.1)" }}
-                            >
-                                <div
-                                    className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full transition-transform duration-300 group-hover:scale-110"
-                                    style={{ backgroundColor: "rgba(234, 67, 53, 0.1)", color: "#EA4335" }}
-                                >
-                                    <FaEnvelope size={22} />
-                                </div>
-                                <div className="flex flex-col overflow-hidden">
-                                    <span className="text-xs font-semibold uppercase tracking-wider" style={{ color: "#EA4335" }}>Email</span>
-                                    <span className="font-medium group-hover:underline truncate text-sm sm:text-base" title="zmlahim676@gmail.com" style={{ color: "var(--foreground)" }}>zmlahim676@gmail.com</span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </motion.div>
 
                 {/* ── Social Links ─────────────────────── */}
                 <motion.div
@@ -309,7 +186,7 @@ export default function ContactSection() {
                     transition={{ duration: 0.5, delay: 0.4 }}
                     className="mt-14 flex flex-col items-center gap-4"
                 >
-                    <p className="text-sm font-medium" style={{ color: "var(--muted)" }}>
+                    <p className="text-sm font-bold uppercase tracking-widest text-[#d1d5db]">
                         Or find me on
                     </p>
                     <div className="flex items-center gap-5">
@@ -320,16 +197,7 @@ export default function ContactSection() {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 aria-label={label}
-                                className="flex h-11 w-11 items-center justify-center rounded-xl transition-all duration-200"
-                                style={{ color: "var(--muted)" }}
-                                onMouseEnter={(e) => {
-                                    e.currentTarget.style.color = "#7c3aed";
-                                    e.currentTarget.style.backgroundColor = "rgba(124, 58, 237, 0.1)";
-                                }}
-                                onMouseLeave={(e) => {
-                                    e.currentTarget.style.color = "var(--muted)";
-                                    e.currentTarget.style.backgroundColor = "transparent";
-                                }}
+                                className="flex h-11 w-11 items-center justify-center rounded-full transition-all duration-200 text-white hover:text-[#0C2B27] hover:bg-[#C4FF00]"
                             >
                                 <Icon size={22} />
                             </a>
@@ -337,6 +205,17 @@ export default function ContactSection() {
                     </div>
                 </motion.div>
             </div>
+
+            {/* ── Floating WhatsApp Button ─────────────────── */}
+            <a
+                href="https://wa.me/923276053253"
+                target="_blank"
+                rel="noreferrer"
+                className="fixed bottom-6 right-6 sm:bottom-10 sm:right-10 z-[100] flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-full shadow-xl transition-all duration-300 hover:scale-110 hover:shadow-[0_0_20px_rgba(196,255,0,0.3)]"
+                style={{ backgroundColor: "#1e5241" }}
+            >
+                <span className="text-3xl font-extrabold tracking-tighter text-[#C4FF00]" style={{ fontFamily: "var(--font-sans)" }}>M.</span>
+            </a>
         </section>
     );
 }
