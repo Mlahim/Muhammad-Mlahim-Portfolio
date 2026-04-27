@@ -17,7 +17,7 @@ const projects = [
         title: "AI Text to Speech Tool",
         description:
             "A professional AI-powered Text to Speech generator featuring 200+ neural voices, real-time synthesis, and MP3 download. Built with a modern, responsive UI.",
-        tags: ["MongoDB", "Express", "React", "Node.js"],
+        tags: ["MongoDB", "Express", "React", "Node.js", "Hugging Face"],
         link: "https://text-to-speech-ai-tool.vercel.app/",
         image: "/tts-preview.png",
     },
@@ -75,8 +75,8 @@ function ProjectCard({
                 </p>
             </div>
 
-            <div className="flex flex-wrap gap-2 relative z-20">
-                {project.tags.slice(0, 3).map((tag) => (
+            <div className="flex flex-wrap gap-2 relative z-20 mt-auto">
+                {project.tags.slice(0, 5).map((tag) => (
                     <span
                         key={tag}
                         className="rounded-full px-3 py-1 text-[10px] sm:text-[11px] font-bold text-[#0C2B27] bg-[#F6F6F2] transition-colors duration-300 group-hover:bg-[#C4FF00]"
