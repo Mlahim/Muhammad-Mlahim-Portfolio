@@ -94,9 +94,9 @@ export default function HeroSection() {
                             const text = skills[itemIndex % skills.length];
 
                             // Target states explicitly for "Active" (offset 0) and "Incoming" (offset 1)
-                            const yTarget = offset === 0 ? 0 : 40;
-                            const opacTarget = offset === 0 ? 1 : 0.6;
-                            const scaleTarget = offset === 0 ? 1 : 0.95;
+                            const yTarget = offset === 0 ? 0 : 35;
+                            const opacTarget = offset === 0 ? 1 : 0.4;
+                            const scaleTarget = offset === 0 ? 1 : 0.65;
                             const zTarget = offset === 0 ? 30 : 20;
 
                             return (
