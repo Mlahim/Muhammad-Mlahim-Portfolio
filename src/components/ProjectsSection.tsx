@@ -17,7 +17,7 @@ const projects = [
         title: "AI Text to Speech Tool",
         description:
             "A professional AI-powered Text to Speech generator featuring 200+ neural voices, real-time synthesis, and MP3 download. Built with a modern, responsive UI.",
-        tags: ["Next.js", "TypeScript", "Hugging Face", "Tailwind"],
+        tags: ["MongoDB", "Express", "React", "Node.js"],
         link: "https://text-to-speech-ai-tool.vercel.app/",
         image: "/tts-preview.png",
     },
