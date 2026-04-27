@@ -132,7 +132,7 @@ export default function ProjectsSection() {
                         What I&apos;ve built
                     </p>
                     <h2 className="text-4xl font-extrabold tracking-tight sm:text-5xl text-[#0C2B27]">
-                        Projects
+                        Recent Projects
                     </h2>
                 </motion.div>
 
