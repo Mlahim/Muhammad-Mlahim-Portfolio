@@ -6,6 +6,14 @@ import { ArrowUpRight } from "lucide-react";
 /* ── Project Data ─────────────────────────────────── */
 const projects = [
     {
+        title: "SavourFiesta",
+        description:
+            "A full-stack MERN based online food ordering website featuring a dynamic menu, real-time cart management, secure checkout, and intuitive user navigation.",
+        tags: ["MongoDB", "Express", "React", "Node.js"],
+        link: "https://savourfiesta-webapplication.vercel.app/",
+        image: "",
+    },
+    {
         title: "AI Text to Speech Tool",
         description:
             "A professional AI-powered Text to Speech generator featuring 200+ neural voices, real-time synthesis, and MP3 download. Built with a modern, responsive UI.",
@@ -42,14 +50,6 @@ const projects = [
         description:
             "A mobile-first fitness application that tracks workouts, visualizes progress with charts, and provides personalized routines.",
         tags: ["React Native", "Firebase", "Chart.js"],
-        link: "#",
-        github: "#",
-    },
-    {
-        title: "Real-time Dashboard",
-        description:
-            "A data visualization dashboard with live-updating charts, WebSocket feeds, and customizable widget layouts.",
-        tags: ["React", "D3.js", "WebSocket", "Express"],
         link: "#",
         github: "#",
     },
