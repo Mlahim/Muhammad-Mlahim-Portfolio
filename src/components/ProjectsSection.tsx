@@ -30,27 +30,11 @@ const projects = [
         github: "#",
     },
     {
-        title: "Task Management App",
+        title: "Apna Rider",
         description:
-            "A collaborative project management tool with drag-and-drop Kanban boards, real-time updates, and team workspaces.",
-        tags: ["Next.js", "Socket.io", "MongoDB", "Framer Motion"],
-        link: "#",
-        github: "#",
-    },
-    {
-        title: "Portfolio Website",
-        description:
-            "A modern, responsive developer portfolio built with cutting-edge web technologies, smooth animations, and dark mode support.",
-        tags: ["Next.js", "Tailwind", "Framer Motion"],
-        link: "#",
-        github: "#",
-    },
-    {
-        title: "Fitness Tracker",
-        description:
-            "A mobile-first fitness application that tracks workouts, visualizes progress with charts, and provides personalized routines.",
-        tags: ["React Native", "Firebase", "Chart.js"],
-        link: "#",
+            "An on-demand grocery and food delivery service. Customers can easily place custom delivery requests, and riders efficiently fulfill and deliver orders right to their doorstep.",
+        tags: ["MongoDB", "Express", "React", "Node.js"],
+        link: "https://apna-rider.vercel.app/",
         github: "#",
     },
 ];
