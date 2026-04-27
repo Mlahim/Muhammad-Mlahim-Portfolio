@@ -15,7 +15,7 @@ const jetBrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Mlahim Portfolio",
+  title: "Muhammad Mlahim",
   description: "Personal portfolio website",
 };
 
