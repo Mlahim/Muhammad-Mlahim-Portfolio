@@ -6,8 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const skills = [
     "I'm a Software Engineer",
     "I'm a Full Stack Developer",
-    "I'm a Software Engineer",
-    "I'm a Full Stack Developer"
+    "I'm a DevOps Engineer"
 ];
 
 const nameText = "MUHAMMAD MLAHIM";
@@ -50,7 +49,7 @@ export default function HeroSection() {
     // Carousel interval
     useEffect(() => {
         const interval = setInterval(() => {
-            setCurrentIndex((prev) => (prev + 1) % skills.length);
+            setCurrentIndex((prev) => prev + 1);
         }, 2500);
         return () => clearInterval(interval);
     }, []);
@@ -86,27 +85,52 @@ export default function HeroSection() {
                     </div>
                 </motion.div>
 
-                {/* ── Vertical Scrolling Carousel ───────────────── */}
-                <div className="relative h-[80px] sm:h-[90px] w-full flex justify-center mb-6 overflow-hidden">
-                    <AnimatePresence>
-                        {[0, 1].map((offset) => {
+                {/* ── Vertical Scrolling Carousel (3 Placeholders) ───────────────── */}
+                <div className="relative h-[120px] sm:h-[130px] w-full flex justify-center items-center mb-6 overflow-hidden">
+                    <AnimatePresence initial={false}>
+                        {[-1, 0, 1].map((offset) => {
                             const itemIndex = currentIndex + offset;
-                            const text = skills[itemIndex % skills.length];
+                            const textIndex = ((itemIndex % skills.length) + skills.length) % skills.length;
+                            const text = skills[textIndex];
 
-                            // Target states explicitly for "Active" (offset 0) and "Incoming" (offset 1)
-                            const yTarget = offset === 0 ? 0 : 35;
-                            const opacTarget = offset === 0 ? 1 : 0.4;
-                            const scaleTarget = offset === 0 ? 1 : 0.65;
-                            const zTarget = offset === 0 ? 30 : 20;
+                            let yTarget = 0;
+                            let opacTarget = 1;
+                            let scaleTarget = 1;
+                            let zTarget = 30;
+
+                            if (offset === -1) {
+                                yTarget = -40;
+                                opacTarget = 0.35;
+                                scaleTarget = 0.7;
+                                zTarget = 10;
+                            } else if (offset === 1) {
+                                yTarget = 40;
+                                opacTarget = 0.35;
+                                scaleTarget = 0.7;
+                                zTarget = 10;
+                            }
 
                             return (
                                 <motion.div
                                     key={itemIndex}
-                                    initial={{ y: offset === 0 ? 40 : 80, opacity: 0, scale: 0.9 }}
-                                    animate={{ y: yTarget, opacity: opacTarget, scale: scaleTarget, zIndex: zTarget }}
-                                    exit={{ y: -40, opacity: 0, scale: 1.05, zIndex: 0 }}
+                                    initial={{
+                                        y: offset === -1 ? -80 : offset === 1 ? 80 : 40,
+                                        opacity: 0,
+                                        scale: 0.6
+                                    }}
+                                    animate={{
+                                        y: yTarget,
+                                        opacity: opacTarget,
+                                        scale: scaleTarget,
+                                        zIndex: zTarget
+                                    }}
+                                    exit={{
+                                        y: offset === -1 ? -90 : 90,
+                                        opacity: 0,
+                                        scale: 0.5
+                                    }}
                                     transition={{ duration: 0.6, ease: "easeInOut" }}
-                                    className="absolute w-full origin-center"
+                                    className="absolute w-full origin-center text-center"
                                 >
                                     <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-wide text-white">
                                         {text}

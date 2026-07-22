@@ -8,9 +8,9 @@ const projects = [
     {
         title: "SavourFiesta",
         description:
-            "A full-stack MERN based online food ordering website featuring a dynamic menu, real-time cart management, secure checkout, and intuitive user navigation.",
-        tags: ["MongoDB", "Express", "React", "Node.js"],
-        link: "https://savourfiesta-webapplication.vercel.app/",
+            "A full-stack MERN online food ordering platform. Fully containerized application deployed with frontend on Vercel and backend services on Render, featuring dynamic menu management, real-time cart system, and secure checkout.",
+        tags: ["Docker", "MongoDB", "Express", "React", "Node.js", "Vercel", "Render"],
+        link: "https://www.savourfiesta.shop",
         image: "",
     },
     {
@@ -76,7 +76,7 @@ function ProjectCard({
             </div>
 
             <div className="flex flex-wrap gap-2 relative z-20 mt-auto">
-                {project.tags.slice(0, 5).map((tag) => (
+                {project.tags.slice(0, 7).map((tag) => (
                     <span
                         key={tag}
                         className="rounded-full px-3 py-1 text-[10px] sm:text-[11px] font-bold text-[#0C2B27] bg-[#F6F6F2] transition-colors duration-300 group-hover:bg-[#C4FF00]"
