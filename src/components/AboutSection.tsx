@@ -41,26 +41,18 @@ export default function AboutSection() {
                         >
                             Building Next-Gen Web Applications
                             <br className="hidden sm:block" />
-                            <span className="text-[#0C2B27] inline-block mt-2 sm:mt-1 border-b-4 border-[#C4FF00]">with AI Integration</span>
+                            <span className="text-[#0C2B27] inline-block mt-2 sm:mt-1 border-b-4 border-[#C4FF00]">with AI & DevOps Engineering</span>
                         </h3>
 
                         <div className="space-y-6 text-base leading-relaxed sm:text-lg text-[#0C2B27]/80 max-w-3xl mx-auto">
                             <p>
-                                I am a <span className="font-bold text-[#0C2B27]">Full Stack Developer</span> with a specialized focus on
-                                building <span className="font-bold text-[#0C2B27]">AI-powered tools</span> and applications.
+                                I am a versatile <span className="font-bold text-[#0C2B27]">Software Engineer, Full Stack Developer & DevOps Engineer</span> with a passion for architecting scalable applications and intelligent AI-powered solutions.
                             </p>
                             <p>
-                                My passion lies in bridging the gap between robust web
-                                development and <span className="font-bold text-[#0C2B27]">artificial intelligence</span>. I don&apos;t just build
-                                websites; I engineer intelligent web solutions that leverage
-                                the power of AI to solve real-world problems.
+                                My expertise spans the entire software lifecycle—from engineering dynamic frontend interfaces and robust MERN backends to containerizing workloads with <span className="font-bold text-[#0C2B27]">Docker</span> and building streamlined <span className="font-bold text-[#0C2B27]">CI/CD pipelines</span> for seamless releases.
                             </p>
                             <p>
-                                Whether it&apos;s creating a custom AI tool from scratch or
-                                seamlessly integrating advanced AI models into existing
-                                platforms, I handle the entire stack. From backend logic to the
-                                frontend interface, I ensure your AI features are not just
-                                powerful, but accessible and user-friendly.
+                                By bridging full-stack development, artificial intelligence, and cloud operations, I don&apos;t just build web tools—I deploy resilient, high-availability cloud environments (Vercel, Render, Microsoft Azure) engineered to perform and scale effortlessly under load.
                             </p>
                         </div>
 

@@ -162,7 +162,7 @@ export default function HeroSection() {
             >
                 <div className="flex flex-col items-center justify-center rounded-[2rem] bg-white p-8 sm:p-14 shadow-2xl text-center">
                     <p className="mb-10 max-w-2xl text-xl sm:text-2xl leading-relaxed text-[#0C2B27] font-medium">
-                        Building next-gen <span className="font-extrabold text-[#0C2B27]">web applications</span> with <span className="font-extrabold text-[#0C2B27]">AI integrations</span> to solve real-world problems.
+                        Architecting scalable <span className="font-extrabold text-[#0C2B27]">web applications</span>, <span className="font-extrabold text-[#0C2B27]">AI solutions</span>, and robust <span className="font-extrabold text-[#0C2B27]">cloud infrastructure</span> to solve real-world problems.
                     </p>
 
                     <div className="flex flex-col gap-4 sm:flex-row w-full sm:w-auto justify-center">
